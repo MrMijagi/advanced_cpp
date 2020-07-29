@@ -1,4 +1,4 @@
-﻿<h2>Autorzy prezentacji</h2>
+﻿<h2>Presentation authors</h2>
 
 <div class="multicolumn">
 <div class="col">
