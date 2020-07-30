@@ -48,22 +48,21 @@ void simpleUsage() {
 <div class="col">
 
 ```cpp
+std::shared_ptr<MyData> source();
+void sink(std::shared_ptr<MyData> ptr);
+
 void collections() {
     std::vector<std::shared_ptr<MyData>> v;
 
     v.push_back(source());
 
     auto tmp = source();
-
     v.push_back(tmp);
     v.push_back(std::move(tmp));
 
     sink(v[0]);
     sink(std::move(v[0]));
 }
-
-
-
 ```
 
 </div>

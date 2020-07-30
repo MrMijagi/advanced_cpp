@@ -197,8 +197,8 @@ ___
   * <!-- .element: class="fragment fade-in" --> once assigned cannot point to anything else
 * <!-- .element: class="fragment fade-in" style="margin: 20px" --> Priorities of usage (if possible):
   * <!-- .element: class="fragment fade-in" --> <code>(const) T&</code>
-  * <!-- .element: class="fragment fade-in" --> <code>std::unique_ptr<T></code>
-  * <!-- .element: class="fragment fade-in" --> <code>std::shared_ptr<T></code>
+  * <!-- .element: class="fragment fade-in" --> <code>std::unique_ptr&ltT&gt</code>
+  * <!-- .element: class="fragment fade-in" --> <code>std::shared_ptr&ltT&gt</code>
   * <!-- .element: class="fragment fade-in" --> <code>T*</code>
 
 ___

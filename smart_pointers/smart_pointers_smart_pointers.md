@@ -17,8 +17,8 @@ ___
 * <!-- .element: class="fragment fade-in" --> A smart pointer manages a pointer to a heap allocated object
 
   * <!-- .element: class="fragment fade-in" --> Deletes the pointed-to object at the right time
-  * <!-- .element: class="fragment fade-in" --> <code>operator->()</code> call managed object methods
-  * <!-- .element: class="fragment fade-in" --> <code>operator.()</code> call smart pointer methods
+  * <!-- .element: class="fragment fade-in" --> <code>operator->()</code> calls managed object methods
+  * <!-- .element: class="fragment fade-in" --> <code>operator.()</code> calls smart pointer methods
   * <!-- .element: class="fragment fade-in" --> smart pointer to a base class can hold a pointer to a derived class
 
 * <!-- .element: class="fragment fade-in" --> STL smart pointers:
@@ -134,10 +134,12 @@ void simpleUsage() {
 <div class="col">
 
 ```cpp
+std::unique_ptr<MyData> source(void);
+void sink(std::unique_ptr<MyData> ptr);
+
 void collections()
 {
     std::vector<std::unique_ptr<MyData>> v;
-
     v.push_back(source());
     auto tmp = source();
 
@@ -147,9 +149,6 @@ void collections()
     //sink(v[0]); ERROR
     sink(std::move(v[0]));
 }
-
-
-
 ```
 
 </div>
@@ -189,7 +188,7 @@ ___
 
 ### `std::make_unique()`
 
-`std::make_unique()` is a factory function that produce unique_ptrs
+`std::make_unique()` is a factory function that produce `unique_ptrs`
 
 * <!-- .element: class="fragment fade-in" --> added in C++14 for symmetrical operations on unique and shared pointers
 * <!-- .element: class="fragment fade-in" --> avoids bare <code>new</code> expression
@@ -218,10 +217,10 @@ ___
 ### `std::unique_ptr<T[]>`
 
 * <!-- .element: class="fragment fade-in" --> During destruction
-  * <!-- .element: class="fragment fade-in" --> <code>std::unique_ptr<T></code> calls <code>delete</code>
-  * <!-- .element: class="fragment fade-in" --> <code>std::unique_ptr<T[]></code> calls <code>delete[]</code>
-* <!-- .element: class="fragment fade-in" --> <code>std::unique_ptr<T[]></code> has additional <code>operator[]</code> for accessing array element
-* <!-- .element: class="fragment fade-in" --> Usually <code>std::vector<T></code> is a better choice
+  * <!-- .element: class="fragment fade-in" --> <code>std::unique_ptr&ltT&gt</code> calls <code>delete</code>
+  * <!-- .element: class="fragment fade-in" --> <code>std::unique_ptr&ltT[]&gt</code> calls <code>delete[]</code>
+* <!-- .element: class="fragment fade-in" --> <code>std::unique_ptr&ltT[]&gt</code> has additional <code>operator[]</code> for accessing array element
+* <!-- .element: class="fragment fade-in" --> Usually <code>std::vector&ltT&gt</code> is a better choice
 
 <div style="font-size: 100%; width: 80%; margin: 0 auto">
 
@@ -242,3 +241,12 @@ void use(void)
 ```
 
 </div>
+
+___
+
+## Exercise: ResourceD
+
+1. <!-- .element: class="fragment fade-in" --> Compile and run ResourceD application and check memory leaks under valgrind
+2. <!-- .element: class="fragment fade-in" --> Fix memory leaks with a proper usage of <code>delete</code> operator
+3. <!-- .element: class="fragment fade-in" --> Refactor the solution to use <code>std::unique_ptr<></code>
+4. <!-- .element: class="fragment fade-in" --> Use <code>std::make_unique()</code>

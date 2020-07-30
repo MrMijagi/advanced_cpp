@@ -108,7 +108,10 @@ int main () {
     child->parent = root;
 }
 ```
+<!-- .element: class="fragment fade-in" -->
 
+<div class="fragment fade-in">
 <div class="box" style="left: 20%;">
 ==148== All heap blocks were freed -- no leaks are possible
+</div>
 </div>

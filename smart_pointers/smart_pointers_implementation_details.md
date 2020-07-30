@@ -21,7 +21,7 @@ ___
 * <!-- .element: class="fragment fade-in" --> No copying
 * <!-- .element: class="fragment fade-in" --> Moving means:
   * <!-- .element: class="fragment fade-in" --> Copying original pointer to a new object
-  * <!-- .element: class="fragment fade-in" --> Setting source pointer to nullptr
+  * <!-- .element: class="fragment fade-in" --> Setting source pointer to <code>nullptr</code>
 * <!-- .element: class="fragment fade-in" --> All methods are inline
 
 ___

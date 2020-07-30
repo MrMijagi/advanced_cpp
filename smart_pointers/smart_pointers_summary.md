@@ -1,6 +1,6 @@
 ﻿# Smart pointers - summary
 
-* <!-- .element: class="fragment fade-in" --> <code>#include <memory></code>
+* <!-- .element: class="fragment fade-in" --> <code>#include &ltmemory&gt</code>
 * <!-- .element: class="fragment fade-in" --> <code>std::unique_ptr<></code> for exclusive ownership
 * <!-- .element: class="fragment fade-in" --> <code>std::shared_ptr<></code> for shared ownership
 * <!-- .element: class="fragment fade-in" --> <code>std::weak_ptr<></code> for observation and breaking cycles

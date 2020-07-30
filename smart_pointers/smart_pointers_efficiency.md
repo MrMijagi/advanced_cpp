@@ -190,7 +190,8 @@ ___
 
 * <!-- .element: class="fragment fade-in" style="margin-top: 10px" --> Transform the list from <code>List.cpp</code> into double-linked list. You should implement:
   * <!-- .element: class="fragment fade-in" --> inserting Nodes at the beginning of the list
-  * <!-- .element: class="fragment fade-in" --> searching elements from the backward
+  * <!-- .element: class="fragment fade-in" --> searching elements in reverse
+<!-- Changed from "searching elements from the backward" "searching elements in reverse" -->
   * <!-- .element: class="fragment fade-in" --> Apply proper smart pointers for the reverse direction.
 * <!-- .element: class="fragment fade-in" style="margin-top: 10px" --> Implement your own <code>unique_ptr</code>. Requirements:
   * <!-- .element: class="fragment fade-in" --> Templatized (should hold a pointer to a template type)
@@ -199,5 +200,5 @@ ___
   * <!-- .element: class="fragment fade-in" --> Moving allowed
   * <!-- .element: class="fragment fade-in" --> Member functions: <code>operator*()</code>, <code>operator->()</code>, <code>get()</code>, <code>release()</code>, <code>reset()</code>
 * <!-- .element: class="fragment fade-in" style="margin-top: 10px" --> Read one of these articles on move semantics:
-  * <!-- .element: class="fragment fade-in" --> Semantyka przenoszenia (in Polish)
-  * <!-- .element: class="fragment fade-in" --> Move semantics and rvalue references in C++11 (in English)
+  * <!-- .element: class="fragment fade-in" --> <a href="https://infotraining.bitbucket.io/cpp-11/move.html">Semantyka przenoszenia</a> (in Polish)
+  * <!-- .element: class="fragment fade-in" --> <a href="https://www.cprogramming.com/c++11/rvalue-references-and-move-semantics-in-c++11.html">Move semantics and rvalue references in C++11</a> (in English)
