@@ -13,7 +13,7 @@ Traits:
 
 </div>
 
-<img src="img/sharedptr1.png" data-src="img/sharedptr1.png" alt="shared pointers" class="plain">
+<img src="img/sharedptr1.png" data-src="img/sharedptr1.png" alt="shared pointers" class="plain fragment fade-in">
 
 ___
 

@@ -1,15 +1,5 @@
 ﻿# Efficiency
 
-<div class="multicolumn" style="height: 400px; position: relative;">
-<div class="col">
-    <div style="position: absolute; bottom: 0">
-        <img height=200 data-src="img/logo.png" src="img/logo.png" alt="Coders School" class="plain" style="margin-bottom: 0">
-    </div>
-</div>
-
-<div class="col">
-</div>
-
 ___
 
 ## Raw pointer
@@ -136,9 +126,6 @@ ___
 
 ## Measurements
 
-<div class="multicolumn">
-<div class="col" style="flex: none;width: 36%">
-
 * <!-- .element: class="fragment fade-in" --> gcc-4.8.2
 * <!-- .element: class="fragment fade-in" --> compilation with <code>–std=c++11 –O3 –DNDEBUG</code>
 * <!-- .element: class="fragment fade-in" --> measuring with:
@@ -146,25 +133,21 @@ ___
   * <!-- .element: class="fragment fade-in" --> htop (mem)
   * <!-- .element: class="fragment fade-in" --> valgrind (allocations count)
 
-</div>
-<div class="col" style="font-size: 70%">
+___
+
+## Results
 
 | test name      | time [s] | allocations | memory [MB] |
-|:--------------:|:--------:|:-----------:|:-----------:|
-| raw pointer    | 0.54     | 10 000 001  | 686         |
-| unique pointer | 0.56     | 10 000 001  | 686         |
-| shared pointer | 1.00     | 20 000 001  | 1072        |
-| make shared    | 0.76     | 10 000 001  | 914         |
-| weak pointer   | 1.28     | 20 000 002  | 1222        |
-
-</div>
-</div>
+|:--------------:|:--------:|:-----------:|:-----------:| 
+| raw pointer  <!-- .element: class="fragment fade-in" -->  | 0.54    <!-- .element: class="fragment fade-in" --> | 10 000 001 <!-- .element: class="fragment fade-in" --> | 686 <!-- .element: class="fragment fade-in" -->       |
+| unique pointer <!-- .element: class="fragment fade-in" --> | 0.56 <!-- .element: class="fragment fade-in" -->    | 10 000 001 <!-- .element: class="fragment fade-in" --> | 686 <!-- .element: class="fragment fade-in" -->        |
+| shared pointer <!-- .element: class="fragment fade-in" --> | 1.00  <!-- .element: class="fragment fade-in" -->   | 20 000 001 <!-- .element: class="fragment fade-in" --> | 1072  <!-- .element: class="fragment fade-in" -->      |
+| make shared  <!-- .element: class="fragment fade-in" -->  | 0.76 <!-- .element: class="fragment fade-in" -->    | 10 000 001 <!-- .element: class="fragment fade-in" --> | 914 <!-- .element: class="fragment fade-in" -->        |
+| weak pointer <!-- .element: class="fragment fade-in" -->  | 1.28  <!-- .element: class="fragment fade-in" -->   | 20 000 002 <!-- .element: class="fragment fade-in" --> | 1222 <!-- .element: class="fragment fade-in" -->       |
 
 ___
 
 ## Conclusions
-
-<div style="position: relative">
 
 * <!-- .element: class="fragment fade-in" --> RAII
   * <!-- .element: class="fragment fade-in" --> acquire resource in constructor
@@ -177,12 +160,6 @@ ___
 * <!-- .element: class="fragment fade-in" --> Create smart pointers with std::make_shared()</code> and <code>std::make_unique()</code>
 * <!-- .element: class="fragment fade-in" --> Raw pointer should mean „access only” (no ownership)
 * <!-- .element: class="fragment fade-in" --> Use reference instead of pointers if possible
-
-<div style="position: absolute; top: 0; right: 0">
-    <img src="img/ram.jpg" data-src="img/ram.jpg" alt="ram" class="plain">
-</div>
-
-</div>
 
 ___
 

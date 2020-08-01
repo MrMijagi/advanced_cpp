@@ -1,15 +1,5 @@
 ﻿# Best practices
 
-<div class="multicolumn" style="height: 400px; position: relative;">
-<div class="col">
-    <div style="position: absolute; bottom: 0">
-        <img height=200 data-src="img/logo.png" src="img/logo.png" alt="Coders School" class="plain" style="margin-bottom: 0">
-    </div>
-</div>
-
-<div class="col">
-</div>
-
 ___
 
 ## Best practices
@@ -24,25 +14,19 @@ ___
 
 ## Rule of 0, Rule of 5
 
-<p style="margin: 5">Rule of 5:</p><!-- .element: class="fragment fade-in" -->
+### Rule of 5 <!-- .element: class="fragment fade-in" -->
 
-<ul style="margin-left: 50px">
-    <li>If you need to implement one of those functions:</li><!-- .element: class="fragment fade-in" -->
-    <ul>
-        <li>destructor</li><!-- .element: class="fragment fade-in" -->
-        <li>copy constructor</li><!-- .element: class="fragment fade-in" -->
-        <li>copy assignment operator</li><!-- .element: class="fragment fade-in" -->
-        <li>move constructor</li><!-- .element: class="fragment fade-in" -->
-        <li>move assignment operator</li><!-- .element: class="fragment fade-in" -->
-    </ul>
-    <li>It probably means that you should implement them all, because you have manual resources management.</li><!-- .element: class="fragment fade-in" -->
-</ul>
+* <!-- .element: class="fragment fade-in" --> If you need to implement one of those functions:
+  * <!-- .element: class="fragment fade-in" --> destructor
+  * <!-- .element: class="fragment fade-in" --> copy constructor
+  * <!-- .element: class="fragment fade-in" --> copy assignment operator
+  * <!-- .element: class="fragment fade-in" --> move constructor
+  * <!-- .element: class="fragment fade-in" --> move assignment operator
+* <!-- .element: class="fragment fade-in" --> It probably means that you should implement them all, because you have manual resources management.
 
-<p style="margin: 5">Rule of 0:</p><!-- .element: class="fragment fade-in" -->
+### Rule of 0 <!-- .element: class="fragment fade-in" -->
 
-<ul style="margin-left: 50px">
-    <li>If you use RAII wrappers on resources, you don’t need to implement any of Rule of 5 functions.</li><!-- .element: class="fragment fade-in" -->
-</ul>
+* <!-- .element: class="fragment fade-in" --> If you use RAII wrappers on resources, you don’t need to implement any of Rule of 5 functions.
 
 ___
 
@@ -56,7 +40,7 @@ ___
 
 ___
 
-### Use std::make_shared() / std::make_unique()
+## Use std::make_shared() / std::make_unique()
 
 * <!-- .element: class="fragment fade-in" --> What is a problem here?
 
@@ -88,7 +72,7 @@ void use(void) {
 
 ___
 
-### Use std::make_shared() / std::make_unique()
+## Use std::make_shared() / std::make_unique()
 
 `auto p = new MyData(10);` means:
 
@@ -96,7 +80,7 @@ ___
 * <!-- .element: class="fragment fade-in" --> run <code>MyData</code> constructor
 * <!-- .element: class="fragment fade-in" --> assign address of allocated memory to <code>p</code>
 
-Order of evaluation of the operands of almost all C++ operators (including the order of
+The order of evaluation of operands of almost all C++ operators (including the order of
 evaluation of function arguments in a function-call expression and the order of evaluation of
 the subexpressions within any expression) is **unspecified**.
 <!-- .element: class="fragment fade-in box" style="font-size: 80%; background-color: #660000"-->
@@ -105,26 +89,17 @@ the subexpressions within any expression) is **unspecified**.
 
 ___
 
-### Use std::make_shared() / std::make_unique()
+## Use std::make_shared() / std::make_unique()
 
 * <!-- .element: class="fragment fade-in" --> How about two such operations?
 
 <div class="fragment fade-in" style="font-size: 70%; margin: 25px">
 
-<table>
-    <tr>
-        <td>(1) allocate <code>sizeof(MyData)</code> bytes</td>
-        <td>(1) allocate <code>sizeof(MyData)</code> bytes</td>
-    </tr>
-    <tr>
-        <td>(2) run <code>MyData</code> constructor</td>
-        <td>(2) run <code>MyData</code> constructor</td>
-    </tr>
-    <tr>
-        <td>(3) assign address of allocated memory to <code>p</code></td>
-        <td>(3) assign address of allocated memory to <code>p</code></td>
-    </tr>
-</table>
+| first operation                              | second operation
+|:---------------------------------------------|:----
+|(1) allocate `sizeof(MyData)` bytes           | (1) allocate `sizeof(MyData)` bytes
+|(2) run `MyData` constructor                  | (2) run `MyData` constructor
+|(3) assign address of allocated memory to `p` | (3) assign address of allocated memory to `p`
 
 </div>
 
@@ -133,7 +108,7 @@ ___
 
 ___
 
-### Use std::make_shared() / std::make_unique()
+## Use std::make_shared() / std::make_unique()
 
 * <!-- .element: class="fragment fade-in" --> <code>std::make_shared()</code> / <code>std::make_unique()</code> resolves this problem
 

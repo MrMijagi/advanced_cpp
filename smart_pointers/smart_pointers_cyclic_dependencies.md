@@ -30,7 +30,7 @@ ___
 ### `std::weak_ptr<>` usage
 
 <div class="multicolumn" style="position: relative">
-<div class="col" style="font-size: 90%; width: 60%; flex: none">
+<div class="col" style="font-size: 100%; width: 70%; flex: none">
 
 ```cpp
 #include <memory>
@@ -57,12 +57,14 @@ int main() {
 
 </div>
 
-<div class="col" style="width: 30%">
-    <div class="box" style="top: 35%; left: 75%">
-        > ./a.out</br>
-        10</br>
-        Expired
-    </div>
+<div class="col" style="width: 20%">
+
+```bash
+> ./a.out
+10
+Expired
+```
+
 </div>
 </div>
 
@@ -110,8 +112,8 @@ int main () {
 ```
 <!-- .element: class="fragment fade-in" -->
 
-<div class="fragment fade-in">
-<div class="box" style="left: 20%;">
+<div class="box fragment fade-in" style="left: 30%;">
+
 ==148== All heap blocks were freed -- no leaks are possible
-</div>
+
 </div>

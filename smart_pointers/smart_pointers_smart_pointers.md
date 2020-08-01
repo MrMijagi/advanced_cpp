@@ -1,14 +1,4 @@
-﻿<h2>Smart pointers</h2>
-
-<div class="multicolumn" style="height: 400px; position: relative;">
-<div class="col">
-    <div style="position: absolute; bottom: 0">
-        <img height=200 data-src="img/logo.png" src="img/logo.png" alt="Coders School" class="plain" style="margin-bottom: 0">
-    </div>
-</div>
-
-<div class="col">
-</div>
+﻿# Smart pointers
 
 ___
 
@@ -44,7 +34,7 @@ Traits:
 
 </div>
 
-<img src="img/uniqueptr.png" data-src="img/uniqueptr.png" alt="unique pointers" class="plain">
+<img src="img/uniqueptr.png" data-src="img/uniqueptr.png" alt="unique pointers" class="plain fragment fade-in">
 
 ___
 
@@ -155,7 +145,7 @@ void collections()
 
 ___
 
-##### `std::unique_ptr<>` cooperation with raw pointers
+#### `std::unique_ptr<>` cooperation with raw pointers
 
 * <!-- .element: class="fragment fade-in" --> <code>get()</code> – returns a raw pointer without releasing the ownership
 * <!-- .element: class="fragment fade-in" --> <code>release()</code> – returns a raw pointer and release the ownership
