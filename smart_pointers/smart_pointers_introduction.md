@@ -1,4 +1,6 @@
-﻿<h2>Presentation authors</h2>
+﻿<!-- .slide: data-background="#111111" -->
+
+<h2>Presentation authors</h2>
 
 <div class="multicolumn">
 <div class="col">
@@ -12,6 +14,7 @@
 </div>
 
 ___
+<!-- .slide: data-background="#111111" -->
 
 <h2>Łukasz Ziobroń</h2>
 
@@ -20,6 +23,7 @@ ___
 
 Not only programming experience:
 
+* Trainer & DevOps specialist @ Coders School
 * C++ and Python developer @ Nokia & Credit Suisse
 * Scrum Master @ Nokia & Credit Suisse
 * Code Reviewer @ Nokia
