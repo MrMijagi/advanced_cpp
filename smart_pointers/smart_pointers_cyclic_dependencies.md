@@ -1,16 +1,16 @@
-﻿## Cyclic dependencies
+﻿<!-- .slide: data-background="#111111" -->
+
+## Cyclic dependencies
 
 * <!-- .element: class="fragment fade-in" --> Cyclic dependency is where you have class A with self-referencing member.
 * <!-- .element: class="fragment fade-in" --> Cyclic dependency is where you have two classes A and B where A has a reference to B which has a reference to A.
 * <!-- .element: class="fragment fade-in" --> How to fix it?
 
-<img data-src="img/cyclic.png" src="img/cyclic.png" alt="cyclic dependencies" class="plain">
+<img data-src="img/cyclicinverted.png" alt="cyclic dependencies" class="plain fragment fade-in">
 
 ___
 
 ### `std::weak_ptr<>` to the rescue
-
-<div style="width: 90%; margin: 0 auto">
 
 Traits:
 
@@ -19,18 +19,16 @@ Traits:
 * <!-- .element: class="fragment fade-in" --> must be converted to <code>std::shared_ptr<></code> to access the object
 * <!-- .element: class="fragment fade-in" --> can be created only from a <code>std::shared_ptr<></code>
 
-</div>
-
 <div>
-    <img src="img/weakptr.png" data-src="img/weakptr.png" alt="weak pointers" class="plain">
+    <img data-src="img/weakptrinverted.png" alt="weak pointers" class="plain fragment fade-in">
 </div>
 
 ___
 
 ### `std::weak_ptr<>` usage
 
-<div class="multicolumn" style="position: relative">
-<div class="col" style="font-size: 100%; width: 70%; flex: none">
+<div class="multicolumn">
+<div class="col">
 
 ```cpp
 #include <memory>
@@ -57,7 +55,7 @@ int main() {
 
 </div>
 
-<div class="col" style="width: 20%">
+<div class="col">
 
 ```bash
 > ./a.out
@@ -112,7 +110,7 @@ int main () {
 ```
 <!-- .element: class="fragment fade-in" -->
 
-<div class="box fragment fade-in" style="left: 30%;">
+<div class="box fragment fade-in">
 
 ==148== All heap blocks were freed -- no leaks are possible
 

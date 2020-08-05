@@ -5,21 +5,21 @@
 <div class="multicolumn">
 <div class="col">
     Bartosz Szurgot
-    <img data-src="img/bartosz.jpg" src="img/bartosz.jpg" alt="Bartosz" class="plain" style="height: 40%">
+    <img data-src="img/bartosz.jpg" alt="Bartosz" class="plain" style="height: 40%">
 </div>
 
 <div class="col">
     Łukasz Ziobroń
-    <img data-src="img/lukasz.jpg" src="img/lukasz.jpg" alt="Lukasz" class="plain" style="height: 40%">
+    <img data-src="img/lukasz.jpg" alt="Lukasz" class="plain" style="height: 40%">
 </div>
 
 ___
-<!-- .slide: data-background="#111111" -->
+<!-- .slide: data-background="#111111" style="font-size: 0.8em" -->
 
 <h2>Łukasz Ziobroń</h2>
 
 <div class="multicolumn">
-<div class="col" style="font-size: 70%;">
+<div class="col">
 
 Not only programming experience:
 
@@ -45,5 +45,5 @@ Public speaking experience:
 </div>
 
 <div class="col">
-    <img data-src="img/lukasz.jpg" src="img/lukasz.jpg" alt="Lukasz" class="plain" style="height: 40%">
+    <img data-src="img/lukasz.jpg" alt="Lukasz" class="plain" style="height: 40%">
 </div>

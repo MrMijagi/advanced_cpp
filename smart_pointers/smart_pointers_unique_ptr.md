@@ -7,7 +7,7 @@ ___
 
 ## `std::unique_ptr<>`
 
-<div style="width: 70%; margin: 0 auto">
+<div>
 
 Traits:
 
@@ -19,7 +19,7 @@ Traits:
 
 </div>
 
-<img src="img/uniqueptr.png" data-src="img/uniqueptr.png" alt="unique pointers" class="plain fragment fade-in">
+<img data-src="img/uniqueptr.png" alt="unique pointers" class="plain fragment fade-in">
 
 ___
 
@@ -27,7 +27,7 @@ ___
 
 * Old style approach vs modern approach
 
-<div class="multicolumn" style="font-size: 85%">
+<div class="multicolumn">
 <div class="col">
 
 ```cpp
@@ -73,6 +73,7 @@ int main() {
 
     std::cout << msg->getValue();
 }
+
 ```
 <!-- .element: class="fragment fade-in" -->
 
@@ -85,7 +86,7 @@ ___
 * <!-- .element: class="fragment fade-in" --> Copying is not allowed
 * <!-- .element: class="fragment fade-in" --> Moving is allowed
 
-<div class="multicolumn" style="font-size: 85%">
+<div class="multicolumn">
 <div class="col">
 
 ```cpp
@@ -125,6 +126,7 @@ void collections() {
 
     // sink(v[0]);       // compilation error
     sink(std::move(v[0]));
+
 }
 ```
 <!-- .element: class="fragment fade-in" -->

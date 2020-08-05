@@ -1,6 +1,10 @@
-﻿### `std::shared_ptr<>`
+﻿<!-- .slide: data-background="#111111" -->
 
-<div style="width: 70%; margin: 0 auto">
+# `std::shared_ptr<>`
+
+___
+
+### `std::shared_ptr<>`
 
 Traits:
 
@@ -11,9 +15,7 @@ Traits:
 * <!-- .element: class="fragment fade-in" --> can use custom deleter
 * <!-- .element: class="fragment fade-in" --> can use custom allocator
 
-</div>
-
-<img src="img/sharedptr1.png" data-src="img/sharedptr1.png" alt="shared pointers" class="plain fragment fade-in">
+<img data-src="img/sharedptr1inverted.png" alt="shared pointers" class="plain fragment fade-in">
 
 ___
 
@@ -21,7 +23,7 @@ ___
 
 * Copying and moving is allowed
 
-<div class="multicolumn" style="font-size: 90%">
+<div class="multicolumn">
 <div class="col">
 
 ```cpp
@@ -71,8 +73,6 @@ ___
 
 ### `std::shared_ptr<>` usage
 
-<div style="font-size: 80%; width: 100%; margin: 0 auto">
-
 ```cpp
 #include <memory>
 #include <map>
@@ -93,15 +93,13 @@ void foo() {
 gadgets.clear();                                        // reference counter = 0 - gadget is removed
 ```
 
-</div>
-
 ___
 
 #### `std::shared_ptr<>` cyclic dependencies
 
 * What happens here?
 
-<div class="multicolumn" style="font-size: 85%">
+<div class="multicolumn">
 <div class="col">
 
 ```cpp
@@ -125,9 +123,8 @@ int main () {
 
 </div>
 
-<div class="col" style="margin-top: 30px;">
-    <div style="margin: 0 auto">Memory leak!</div>
-    <img data-src="img/kot.jpg" src="img/kot.jpg" alt="kot" class="plain" style="height: 70%">
+<div class="col fragment fade-in">
+    Memory leak!
+    <img data-src="img/kot.jpg" alt="kot" class="plain" style="height: 70%">
     
 </div>
-<!-- .element: class="fragment fade-in" -->

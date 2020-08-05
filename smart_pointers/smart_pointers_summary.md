@@ -1,4 +1,6 @@
-﻿# Smart pointers - summary
+﻿<!-- .slide: data-background="#111111" -->
+
+# Smart pointers - summary
 
 * <!-- .element: class="fragment fade-in" --> <code>#include &ltmemory&gt</code>
 * <!-- .element: class="fragment fade-in" --> <code>std::unique_ptr<></code> for exclusive ownership

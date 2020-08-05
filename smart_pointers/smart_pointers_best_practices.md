@@ -1,4 +1,6 @@
-﻿# Best practices
+﻿<!-- .slide: data-background="#111111" -->
+
+# Best practices
 
 ___
 
@@ -40,7 +42,9 @@ ___
 
 ___
 
-## Use std::make_shared() / std::make_unique()
+<!-- .slide: style="font-size: 0.8em" -->
+
+### Use std::make_shared() / std::make_unique()
 
 * <!-- .element: class="fragment fade-in" --> What is a problem here?
 
@@ -53,7 +57,7 @@ void use(void) {
     sink(Ptr{new MyData{41}}, Ptr{new MyData{42}});
 }
 ```
-<!-- .element: class="fragment fade-in" style="font-size: 50%" -->
+<!-- .element: class="fragment fade-in" -->
 
 * <!-- .element: class="fragment fade-in" --> Hint: this version is not problematic
 
@@ -68,11 +72,11 @@ void use(void) {
     sink(std::move(oldData), std::move(newData));
 }
 ```
-<!-- .element: class="fragment fade-in" style="font-size: 50%" -->
+<!-- .element: class="fragment fade-in" -->
 
 ___
 
-## Use std::make_shared() / std::make_unique()
+### Use std::make_shared() / std::make_unique()
 
 `auto p = new MyData(10);` means:
 
@@ -83,17 +87,13 @@ ___
 The order of evaluation of operands of almost all C++ operators (including the order of
 evaluation of function arguments in a function-call expression and the order of evaluation of
 the subexpressions within any expression) is **unspecified**.
-<!-- .element: class="fragment fade-in box" style="font-size: 80%; background-color: #660000"-->
-
-<!-- I divided this slide into two because there was too much content -->
+<!-- .element: class="fragment fade-in box" -->
 
 ___
 
-## Use std::make_shared() / std::make_unique()
+### Use std::make_shared() / std::make_unique()
 
-* <!-- .element: class="fragment fade-in" --> How about two such operations?
-
-<div class="fragment fade-in" style="font-size: 70%; margin: 25px">
+* How about two such operations?
 
 | first operation                              | second operation
 |:---------------------------------------------|:----
@@ -101,14 +101,12 @@ ___
 |(2) run `MyData` constructor                  | (2) run `MyData` constructor
 |(3) assign address of allocated memory to `p` | (3) assign address of allocated memory to `p`
 
-</div>
-
 * <!-- .element: class="fragment fade-in" --> Unspecified order of evaluation means that order can be for example 1,2,1,2,3,3.
 * <!-- .element: class="fragment fade-in" --> What if second 2 throws an exception?
 
 ___
 
-## Use std::make_shared() / std::make_unique()
+### Use std::make_shared() / std::make_unique()
 
 * <!-- .element: class="fragment fade-in" --> <code>std::make_shared()</code> / <code>std::make_unique()</code> resolves this problem
 
@@ -167,10 +165,10 @@ ___
 
 ### Use references instead of pointers
 
-* <!-- .element: class="fragment fade-in" style="margin: 20px" --> What is the difference between a pointer and a reference?
+* <!-- .element: class="fragment fade-in" --> What is the difference between a pointer and a reference?
   * <!-- .element: class="fragment fade-in" --> reference cannot be empty
   * <!-- .element: class="fragment fade-in" --> once assigned cannot point to anything else
-* <!-- .element: class="fragment fade-in" style="margin: 20px" --> Priorities of usage (if possible):
+* <!-- .element: class="fragment fade-in" --> Priorities of usage (if possible):
   * <!-- .element: class="fragment fade-in" --> <code>(const) T&</code>
   * <!-- .element: class="fragment fade-in" --> <code>std::unique_ptr&ltT&gt</code>
   * <!-- .element: class="fragment fade-in" --> <code>std::shared_ptr&ltT&gt</code>
