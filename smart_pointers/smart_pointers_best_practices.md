@@ -90,6 +90,8 @@ the subexpressions within any expression) is **unspecified**.
 <!-- .element: class="fragment fade-in box" -->
 
 ___
+<!-- .slide: style="font-size: 0.77em" -->
+
 
 ### Use std::make_shared() / std::make_unique()
 

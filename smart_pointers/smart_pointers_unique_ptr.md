@@ -3,7 +3,6 @@
 # `std::unique_ptr<>`
 
 ___
-<!-- .slide: data-background="#ffffff" -->
 
 ## `std::unique_ptr<>`
 
@@ -19,7 +18,7 @@ Traits:
 
 </div>
 
-<img data-src="img/uniqueptr.png" alt="unique pointers" class="plain fragment fade-in">
+<img data-src="img/uniqueptrinverted.png" alt="unique pointers" class="plain fragment fade-in">
 
 ___
 
