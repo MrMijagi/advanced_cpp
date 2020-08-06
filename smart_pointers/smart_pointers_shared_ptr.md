@@ -18,6 +18,7 @@ Traits:
 <img data-src="img/sharedptr1inverted.png" alt="shared pointers" class="plain fragment fade-in">
 
 ___
+<!-- .slide: style="font-size: 0.85em" -->
 
 ### `std::shared_ptr<>` usage
 
@@ -70,8 +71,9 @@ void collections() {
 </div>
 
 ___
+<!-- .slide: style="font-size: 0.85em" -->
 
-### `std::shared_ptr<>` usage
+### `std::shared_ptr<>` usage cont.
 
 ```cpp
 #include <memory>
@@ -79,28 +81,32 @@ ___
 #include <string>
 
 class Gadget {};
-std::map<std::string, std::shared_ptr<Gadget>> gadgets; // it wouldn't compile with C++03. Why?
+std::map<std::string, std::shared_ptr<Gadget>> gadgets;
+// above wouldn't compile with C++03. Why?
 
 void foo() {
-    std::shared_ptr<Gadget> p1{new Gadget()};           // reference counter = 1
+    std::shared_ptr<Gadget> p1{new Gadget()};   // reference counter = 1
     {
-        auto p2 = p1;                                   // shared_ptr copy (reference counter == 2)
-        gadgets.insert(make_pair("mp3", p2));           // shared_ptr copy (reference counter == 3)
+        auto p2 = p1;                           // copy (reference counter == 2)
+        gadgets.insert(make_pair("mp3", p2));   // copy (reference counter == 3)
         p2->use();
-    }                                                   // destruction of p2, reference counter = 2
-}                                                       // destruction of p1, reference counter = 1
+    }                                           // destruction of p2, reference counter = 2
+}                                               // destruction of p1, reference counter = 1
 
-gadgets.clear();                                        // reference counter = 0 - gadget is removed
+int main() {
+    foo();
+    gadgets.clear();                            // reference counter = 0 - gadget is removed
+}
 ```
 
 ___
 
-#### `std::shared_ptr<>` cyclic dependencies
+### `std::shared_ptr<>` cyclic dependencies
 
 * What happens here?
 
-<div class="multicolumn">
-<div class="col">
+<div class="multicolumn" style="position: relative">
+<div class="col" style="width: 65%; flex: none">
 
 ```cpp
 #include <memory>
@@ -125,6 +131,6 @@ int main () {
 
 <div class="col fragment fade-in">
     Memory leak!
-    <img data-src="img/kot.jpg" alt="kot" class="plain" style="height: 70%">
-    
+    <img data-src="img/kot.jpg" alt="kot" class="plain" style="height: 50%">
+
 </div>

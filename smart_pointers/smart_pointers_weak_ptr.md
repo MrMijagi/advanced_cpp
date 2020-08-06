@@ -2,11 +2,11 @@
 
 ## Cyclic dependencies
 
+<img data-src="img/cyclicinverted.png" alt="cyclic dependencies" class="plain fragment fade-in">
+
 * <!-- .element: class="fragment fade-in" --> Cyclic dependency is where you have class A with self-referencing member.
 * <!-- .element: class="fragment fade-in" --> Cyclic dependency is where you have two classes A and B where A has a reference to B which has a reference to A.
 * <!-- .element: class="fragment fade-in" --> How to fix it?
-
-<img data-src="img/cyclicinverted.png" alt="cyclic dependencies" class="plain fragment fade-in">
 
 ___
 
@@ -27,8 +27,8 @@ ___
 
 ### `std::weak_ptr<>` usage
 
-<div class="multicolumn">
-<div class="col">
+<div class="multicolumn" style="position: relative">
+<div class="col" style="width: 65%; flex: none">
 
 ```cpp
 #include <memory>
@@ -37,7 +37,7 @@ ___
 struct Msg { int value; };
 
 void checkMe(const std::weak_ptr<Msg> & wp) {
-    auto p = wp.lock();
+    std::shared_ptr<Msg> p = wp.lock();
     if (p)
         std::cout << p->value << '\n';
     else

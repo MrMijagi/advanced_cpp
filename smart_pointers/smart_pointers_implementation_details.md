@@ -20,6 +20,8 @@ ___
 
 ### Implementation details – `std::shared_ptr<>`
 
+<img data-src="img/sharedptr2inverted.png" alt="sharedptr2" class="plain fragment fade-in">
+
 * <!-- .element: class="fragment fade-in" --> Holds an object pointer
 * <!-- .element: class="fragment fade-in" --> Holds 2 reference counters:
   * <!-- .element: class="fragment fade-in" --> shared pointers count
@@ -30,8 +32,6 @@ ___
   * <!-- .element: class="fragment fade-in" --> deletes reference counters when <code>shared-refs == 0</code> and <code>weak-refs == 0</code>
 * <!-- .element: class="fragment fade-in" --> Extra space for a deleter
 * <!-- .element: class="fragment fade-in" --> All methods are inline
-
-<img data-src="img/sharedptr2inverted.png" alt="sharedptr2" class="plain fragment fade-in">
 
 ___
 

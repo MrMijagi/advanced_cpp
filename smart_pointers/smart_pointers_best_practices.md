@@ -44,7 +44,7 @@ ___
 
 <!-- .slide: style="font-size: 0.8em" -->
 
-### Use std::make_shared() / std::make_unique()
+### Use `std::make_shared()` / `std::make_unique()`
 
 * <!-- .element: class="fragment fade-in" --> What is a problem here?
 
@@ -76,7 +76,7 @@ void use(void) {
 
 ___
 
-### Use std::make_shared() / std::make_unique()
+### Allocation deconstructed
 
 `auto p = new MyData(10);` means:
 
@@ -92,23 +92,23 @@ the subexpressions within any expression) is **unspecified**.
 ___
 <!-- .slide: style="font-size: 0.77em" -->
 
-
-### Use std::make_shared() / std::make_unique()
+### Unspecified order of evaluation
 
 * How about two such operations?
 
-| first operation                              | second operation
-|:---------------------------------------------|:----
-|(1) allocate `sizeof(MyData)` bytes           | (1) allocate `sizeof(MyData)` bytes
-|(2) run `MyData` constructor                  | (2) run `MyData` constructor
-|(3) assign address of allocated memory to `p` | (3) assign address of allocated memory to `p`
+| first operation (A)                           | second operation (B)                          |
+| :-------------------------------------------- | :-------------------------------------------- |
+| (1) allocate `sizeof(MyData)` bytes           | (1) allocate `sizeof(MyData)` bytes           |
+| (2) run `MyData` constructor                  | (2) run `MyData` constructor                  |
+| (3) assign address of allocated memory to `p` | (3) assign address of allocated memory to `p` |
 
-* <!-- .element: class="fragment fade-in" --> Unspecified order of evaluation means that order can be for example 1,2,1,2,3,3.
-* <!-- .element: class="fragment fade-in" --> What if second 2 throws an exception?
+* <!-- .element: class="fragment fade-in" --> Unspecified order of evaluation means that order can be for example:
+  * A1, A2, B1, B2, C3, C3
+* <!-- .element: class="fragment fade-in" --> What if B2 throws an exception?
 
 ___
 
-### Use std::make_shared() / std::make_unique()
+### Use `std::make_shared()` / `std::make_unique()`
 
 * <!-- .element: class="fragment fade-in" --> <code>std::make_shared()</code> / <code>std::make_unique()</code> resolves this problem
 
@@ -121,7 +121,7 @@ void use() {
     sink(std::make_shared<MyData>(41), std::make_shared<MyData>(42));
 }
 ```
-<!-- .element: class="fragment fade-in" --> 
+<!-- .element: class="fragment fade-in" -->
 
 * <!-- .element: class="fragment fade-in" --> Fixes previous bug
 * <!-- .element: class="fragment fade-in" --> Does not repeat a constructed type
@@ -130,7 +130,7 @@ void use() {
 
 ___
 
-## Copying std::shared_ptr<>
+## Copying `std::shared_ptr<>`
 
 ```cpp
 void foo(std::shared_ptr<MyData> p);
@@ -149,7 +149,7 @@ void bar(std::shared_ptr<MyData> p) {
 
 ___
 
-## Copying std::shared_ptr<>
+## Copying `std::shared_ptr<>`
 
 ```cpp
 void foo(const std::shared_ptr<MyData> & p);
@@ -169,7 +169,7 @@ ___
 
 * <!-- .element: class="fragment fade-in" --> What is the difference between a pointer and a reference?
   * <!-- .element: class="fragment fade-in" --> reference cannot be empty
-  * <!-- .element: class="fragment fade-in" --> once assigned cannot point to anything else
+  * <!-- .element: class="fragment fade-in" --> reference, once assigned cannot point to anything else
 * <!-- .element: class="fragment fade-in" --> Priorities of usage (if possible):
   * <!-- .element: class="fragment fade-in" --> <code>(const) T&</code>
   * <!-- .element: class="fragment fade-in" --> <code>std::unique_ptr&ltT&gt</code>
@@ -181,11 +181,12 @@ ___
 ## Exercise: List
 
 Take a look at `List.cpp` file, where simple (and buggy) single-linked list is implemented.
-`void add(Node* node)` method adds a new `Node` at the end of the list.
-`Node* get(const int value)` method iterates over the list and returns the first Node with matching `value` or `nullptr`
+
+* `void add(Node* node)` method adds a new `Node` at the end of the list.
+* `Node* get(const int value)` method iterates over the list and returns the first Node with matching `value` or `nullptr`
 
 1. <!-- .element: class="fragment fade-in" --> Compile and run List application
 2. <!-- .element: class="fragment fade-in" --> Fix memory leaks without introducing smart pointers
 3. <!-- .element: class="fragment fade-in" --> Fix memory leaks with smart pointers. What kind of pointers needs to be applied and why?
-4. <!-- .element: class="fragment fade-in" --> What happens when the same Node is added twice? Fix this problem.
+4. <!-- .element: class="fragment fade-in" --> (Optional) What happens when the same Node is added twice? Fix this problem.
 5. <!-- .element: class="fragment fade-in" --> (Optional) Create <code>EmptyListError</code> exception (deriving from <code>std::runtime_error</code>). Add throwing and catching it in a proper places.

@@ -1,6 +1,6 @@
 ﻿<!-- .slide: data-background="#111111" -->
 
-## std::auto_ptr<> - something to forget
+## `std::auto_ptr<>` - something to forget
 
 * <!-- .element: class="fragment fade-in" --> C++98 provided <code>std::auto_ptr<></code>
 * <!-- .element: class="fragment fade-in" --> Few fixes in C++03
